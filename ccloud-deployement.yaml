@@ -1,0 +1,13 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: Cluster
+metadata:
+  name: cluster-linking
+  namespace: destination
+spec:
+  kafka:
+    clusterId: lkc-21drmq
+  authentication:
+    type: basic
+    basic:
+      secretRef:
+        name: restclass-cloud

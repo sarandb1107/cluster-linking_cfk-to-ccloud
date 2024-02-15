@@ -1,0 +1,15 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: KafkaRestClass
+metadata:
+  name: confluent-cloud-kafka-rest
+  namespace: source
+spec:
+  kafkaClusterRef:
+    name: cluster-linking
+  kafkaRest:
+    endpoint: https://pkc-4r087.us-west2.gcp.confluent.cloud:443
+    kafkaClusterID: lkc-21drmq
+    authentication:
+      type: basic
+      basic:
+        secretRef: restclass-ccloud

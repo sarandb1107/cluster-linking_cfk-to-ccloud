@@ -1,0 +1,24 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: ClusterLink
+metadata:
+  name: cluster-linking-1
+  namespace: source
+spec:
+  sourceInitiatedLink:
+    linkMode: Source
+  sourceKafkaCluster:
+    kafkaRestClassRef:
+      name: source-restclass
+      namespace: source
+  destinationKafkaCluster:
+    bootstrapEndpoint: pkc-4r087.us-west2.gcp.confluent.cloud:9092
+    kafkaRestClassRef:
+      name: confluent-cloud-kafka-rest
+      namespace: source
+    authentication:
+      type: plain
+      jaasConfigPassThrough:
+        secretRef: jaasconfig-ccloud
+  mirrorTopics:
+    - name: demo-topic
+status: {}
